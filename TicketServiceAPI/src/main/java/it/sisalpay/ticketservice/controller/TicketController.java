@@ -4,14 +4,18 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import it.sisalpay.ticketservice.model.Ticket;
 import it.sisalpay.ticketservice.service.TicketService;
 
+@RestController
 @RequestMapping("/junitspring")
 public class TicketController {
 	@Autowired
@@ -26,8 +30,7 @@ public class TicketController {
     // http://localhost:8080/SpringMVCRESTful/Tickets
     // http://localhost:8080/SpringMVCRESTful/Tickets.xml
     // http://localhost:8080/SpringMVCRESTful/Tickets.json
-    @RequestMapping(value = "/Tickets", //
-            method = RequestMethod.GET, //
+    @GetMapping(value = "/Tickets", //
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     public List<Ticket> getTickets() {
         List<Ticket> list = service.getAllTickets();
@@ -38,8 +41,7 @@ public class TicketController {
     // http://localhost:8080/SpringMVCRESTful/Tickets/{empNo}
     // http://localhost:8080/SpringMVCRESTful/Tickets/{empNo}.xml
     // http://localhost:8080/SpringMVCRESTful/Tickets/{empNo}.json
-    @RequestMapping(value = "/Tickets/{tickNo}", //
-            method = RequestMethod.GET, //
+    @GetMapping(value = "/Tickets/{tickNo}", //
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
  
     public Ticket getTicket(@PathVariable("tickNo") String tickNo) {
@@ -50,8 +52,7 @@ public class TicketController {
     // http://localhost:8080/SpringMVCRESTful/Tickets
     // http://localhost:8080/SpringMVCRESTful/Tickets.xml
     // http://localhost:8080/SpringMVCRESTful/Tickets.json
-    @RequestMapping(value = "/Tickets", //
-            method = RequestMethod.POST, //
+    @PostMapping(value = "/Tickets", //
             consumes = { MediaType.APPLICATION_JSON_VALUE },
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     public int addTicket(@RequestBody Ticket t) {
