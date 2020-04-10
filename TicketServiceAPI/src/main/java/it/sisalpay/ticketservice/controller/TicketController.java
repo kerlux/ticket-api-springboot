@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.sisalpay.ticketservice.model.Ticket;
@@ -27,9 +26,9 @@ public class TicketController {
     }
  
     // URL:
-    // http://localhost:8080/SpringMVCRESTful/Tickets
-    // http://localhost:8080/SpringMVCRESTful/Tickets.xml
-    // http://localhost:8080/SpringMVCRESTful/Tickets.json
+    // http://localhost:8080/junitspring/Tickets
+    // http://localhost:8080/junitspring/Tickets.xml
+    // http://localhost:8080/junitspring/Tickets.json
     @GetMapping(value = "/Tickets", //
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     public List<Ticket> getTickets() {
@@ -38,9 +37,9 @@ public class TicketController {
     }
   
     // URL:
-    // http://localhost:8080/SpringMVCRESTful/Tickets/{empNo}
-    // http://localhost:8080/SpringMVCRESTful/Tickets/{empNo}.xml
-    // http://localhost:8080/SpringMVCRESTful/Tickets/{empNo}.json
+    // http://localhost:8080/junitspring/Tickets/{empNo}
+    // http://localhost:8080/junitspring/Tickets/{empNo}.xml
+    // http://localhost:8080/junitspring/Tickets/{empNo}.json
     @GetMapping(value = "/Tickets/{tickNo}", //
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
  
@@ -49,9 +48,9 @@ public class TicketController {
     }
  
     // URL:
-    // http://localhost:8080/SpringMVCRESTful/Tickets
-    // http://localhost:8080/SpringMVCRESTful/Tickets.xml
-    // http://localhost:8080/SpringMVCRESTful/Tickets.json
+    // http://localhost:8080/junitspring/Tickets
+    // http://localhost:8080/junitspring/Tickets.xml
+    // http://localhost:8080/junitspring/Tickets.json
     @PostMapping(value = "/Tickets", //
             consumes = { MediaType.APPLICATION_JSON_VALUE },
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
